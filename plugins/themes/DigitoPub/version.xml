@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
+
+<version identifier="DigitoPubTheme" component="plugins.themes.DigitoPubTheme" version="1.0.0">
+    <dependency component="plugins.generic.customBlockManager" version="1.0.0"/>
+</version>

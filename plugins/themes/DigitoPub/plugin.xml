@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plugin SYSTEM "../../../lib/pkp/dtd/plugin.dtd">
+
+<plugin name="DigitoPubTheme" display_name="DigitoPub Theme" version="1.0.0" product="DigitoPubTheme" required_version="3.3.0" date="2025-11-30">
+	<lib>DigitoPubThemePlugin</lib>
+	<autoload>
+		<class name="DigitoPubThemePlugin" file="DigitoPubThemePlugin.inc.php" />
+	</autoload>
+</plugin>
