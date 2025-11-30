@@ -1,0 +1,257 @@
+/* plugins/themes/DigitoPub/styles/index.scss */
+
+// Import PKP's standard variables and mixins
+@import "../../../lib/pkp/styles/variables";
+@import "../../../lib/pkp/styles/mixins";
+
+// --- Base Variables for DigitoPub ---
+$digitopub-primary: #8a0c20; // A deep red/maroon color from the demo
+$digitopub-secondary: #000000;
+$digitopub-light-gray: #f2f2f2;
+$digitopub-header-bg: white;
+$digitopub-nav-bg: $digitopub-primary;
+$digitopub-link-color: $digitopub-primary;
+
+// --- Global Reset/Base ---
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: $digitopub-secondary;
+}
+
+a {
+    color: $digitopub-link-color;
+
+    &:hover {
+        color: darken($digitopub-link-color, 15%);
+    }
+}
+
+.digitopub_content_area {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+// --- Layout ---
+.content_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.digitopub_main {
+    flex: 3; // Main content is wider
+    min-width: 0; // Fixes flex item overflow
+}
+
+.digitopub_sidebar {
+    flex: 1; // Sidebar is narrower
+    min-width: 250px;
+}
+
+// --- Header/Navigation ---
+.digitopub_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid $digitopub-light-gray;
+}
+
+.digitopub_header_meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.digitopub_issn {
+    font-size: 0.85em;
+
+    .label {
+        font-weight: bold;
+    }
+}
+
+.digitopub_navigation_bar {
+    background: $digitopub-nav-bg;
+    color: white;
+
+    .digitopub_navbar_inner {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .digitopub_nav_list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .digitopub_nav_item {
+        list-style: none;
+
+        a {
+            display: block;
+            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                background: darken($digitopub-nav-bg, 10%);
+                color: white;
+            }
+        }
+    }
+
+    .digitopub_search_item {
+        margin-left: auto;
+
+        /* Push search to the right */
+        .pkp_structure_search {
+            background: none;
+            border: none;
+
+            input[type="text"] {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        display: none; // Hidden on desktop
+    }
+}
+
+// --- Footer ---
+.digitopub_footer {
+    background: $digitopub-secondary;
+    color: white;
+    padding: 30px 0 10px 0;
+    margin-top: 40px;
+}
+
+.digitopub_footer_top {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+
+    .digitopub_footer_col {
+        padding: 0 15px;
+    }
+
+    h4 {
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    address,
+    p {
+        font-size: 0.9em;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.digitopub_footer_bottom {
+    text-align: center;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    padding-top: 10px;
+}
+
+// --- Responsive/Mobile (Break on iPad size) ---
+@media (max-width: 992px) {
+    .content_wrapper {
+        flex-direction: column;
+    }
+
+    .digitopub_sidebar {
+        min-width: 100%;
+        order: 1;
+        /* Move sidebar above main content in mobile */
+    }
+
+    .digitopub_main {
+        order: 2;
+    }
+
+    .digitopub_navigation_bar {
+        .navbar-toggler {
+            display: block; // Show on mobile
+            background: none;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+
+            .fa-bars {
+                margin-right: 5px;
+            }
+        }
+
+        .digitopub_nav_list {
+            display: none;
+            /* Hide by default */
+            flex-direction: column;
+            width: 100%;
+
+            &.active {
+                display: flex;
+                /* Show when toggled by JS */
+            }
+        }
+
+        .digitopub_nav_item {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .digitopub_search_item {
+            margin-left: 0;
+            padding: 10px 15px;
+
+            .pkp_structure_search {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// --- RTL Support (Arabic) ---
+[dir="rtl"] {
+    .content_wrapper {
+        flex-direction: row-reverse;
+    }
+
+    .digitopub_header {
+        .digitopub_logo_area {
+            // Logo usually stays left by convention, but text align is rtl
+        }
+
+        .digitopub_header_meta {
+            direction: rtl;
+        }
+    }
+
+    .digitopub_navigation_bar {
+        .digitopub_nav_list {
+
+            // Switch layout of nav items
+            .digitopub_nav_item:not(:last-child) {
+                margin-right: 0;
+                margin-left: 15px;
+            }
+        }
+
+        .digitopub_search_item {
+            margin-left: 0;
+            margin-right: auto;
+            /* Push search to the right/start in RTL */
+        }
+    }
+}

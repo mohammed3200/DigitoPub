@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../lib/pkp/dtd/locale.dtd">
+
+<locale name="ar_SA" full_name="Arabic">
+    <message key="plugins.themes.noveltyhacker.name">سمة الرواد للمختبرين</message>
+    <message key="plugins.themes.noveltyhacker.description">محاكاة لسمة الرواد لمجلات OJS.</message>
+</locale>
