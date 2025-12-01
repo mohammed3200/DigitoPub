@@ -1,6 +1,6 @@
 # DigitoPub OJS 3 Theme
 
-A replication of the DigitoPub OJS theme for ethical hacking and penetration testing professionals using Open Journal Systems. Built with PHP and Smarty (OJS Theme API compatible).
+The DigitoPub OJS professional template is designed for use with OpenJournal systems. It is built using PHP and Smarty (compatible with the OJS template API).
 
 ## Features
 
